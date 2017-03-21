@@ -66,7 +66,9 @@ class MaatwebsiteDemoController extends Controller
 				 * @var [type]
 				 */
 				foreach ($data->toArray() as $key => $value) {
-					$insert[] = ['title' => $value['title'], 'description' => $value['description']];
+					if(!empty($value)){
+						$insert[] = ['title' => $value['title'], 'description' => $value['description']];
+					}
 				}
 
 				
