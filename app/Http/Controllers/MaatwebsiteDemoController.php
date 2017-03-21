@@ -48,13 +48,25 @@ class MaatwebsiteDemoController extends Controller
 			$data = Excel::load($path, function($reader) {})->get();
 
 			if(!empty($data) && $data->count()){
-
-				foreach ($data->toArray() as $key => $value) {
+				
+				/**
+				 * For ODS Type
+				 * @var [type]
+				 */
+				/*foreach ($data->toArray() as $key => $value) {
 					if(!empty($value)){
 						foreach ($value as $v) {		
 							$insert[] = ['title' => $v['title'], 'description' => $v['description']];
 						}
 					}
+				}*/
+
+				/**
+				 * Excel
+				 * @var [type]
+				 */
+				foreach ($data->toArray() as $key => $value) {
+					$insert[] = ['title' => $value['title'], 'description' => $value['description']];
 				}
 
 				
